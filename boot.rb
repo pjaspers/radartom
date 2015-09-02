@@ -17,3 +17,5 @@ $db.create_table? :tweets do
   Time :posted_at
   String :tweet_id
 end
+
+class Tweet < Sequel::Model; end

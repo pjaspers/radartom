@@ -9,6 +9,9 @@ gem "rake", "~> 10.4.2"
 gem "sequel", "~> 4.22.0"
 gem "pg", "~> 0.18.1"
 
+gem "twitter", "~> 5.14.0"
+gem "htmlentities", "~> 4.3.4"
+
 group :development, :test do
   gem "dotenv", "~> 2.0.1"
   gem "pry", "~> 0.9"
