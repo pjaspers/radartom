@@ -10,6 +10,12 @@ end
 
 task default: :test
 
+desc "Search for new mentions"
+task :crawl_for_tag do
+  require "./dish"
+  Dish.point_at_tom.crawl_hashtag
+end
+
 desc "Open an pry session with the app loaded"
 task :console do
   require "pry"

@@ -14,6 +14,7 @@ gem "htmlentities", "~> 4.3.4"
 
 group :development, :test do
   gem "dotenv", "~> 2.0.1"
+  gem "sass", "~> 3.4.13"
   gem "pry", "~> 0.9"
   gem "sqlite3", "~> 1.3.10"
   gem "minitest", "~> 5.5.0"
