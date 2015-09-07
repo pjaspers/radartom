@@ -17,3 +17,7 @@ Main web app to host all the things, barebones Sinatra app with:
 - An extensive test suite! (e.g. one test that checks for a 200)
 
 Either run `foreman start` or run `gem install shotgun && shotgun config.ru`.
+
+Feist your eyes on:
+
+![DOTTER](https://pile.pjaspers.com/Screen-Shot-2015-09-07-at-23.14.21-0gZF6jpKXV.png)
