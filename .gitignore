@@ -1,3 +1,4 @@
 .env
 dotter.db
 vendor/ruby
+.sass-cache
