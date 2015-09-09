@@ -19,4 +19,9 @@ $db.create_table? :tweets do
   String :profile_image
 end
 
-class Tweet < Sequel::Model; end
+class Tweet < Sequel::Model;
+  def high_quality_profile_image
+    return "" unless profile_image
+    profile_image.gsub("_normal", "_400x400")
+  end
+end
