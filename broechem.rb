@@ -1,10 +1,11 @@
+# coding: utf-8
 require "./boot"
 require "sinatra/base"
 
 class Broechem < Sinatra::Application
 
   get "/" do
-    @tweet = Tweet.all.sample
+    @tweet = Tweet.random_radar
     @reply = dotterisms.sample
     erb :index
   end
