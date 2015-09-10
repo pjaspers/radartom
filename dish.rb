@@ -43,12 +43,14 @@ class Dish
 
   def process_tweet(tweet_details)
     name = tweet_details.fetch(:user, {}).fetch(:screen_name).downcase
+    profile_image_url = tweet_details.fetch(:user, {}).fetch(:profile_image_url)
     text = decode_full_text(tweet_details.fetch(:text))
     log "%s: %s" % [name, text]
     t = Tweet.find_or_create(tweet_id: tweet_details.fetch(:id_str).to_s)
     t.name = name
     t.posted_at = Time.parse(tweet_details.fetch(:created_at))
     t.text = text
+    t.profile_image = profile_image_url
     t.save
   end
 
