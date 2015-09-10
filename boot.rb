@@ -36,9 +36,9 @@ class Tweet < Sequel::Model;
   # Returns a Tweet
   def self.null
     text = <<DESC
-"Fighting with all my dev tools today.
+Fighting with all my dev tools today.
 
-ALL THE FUN. #radartom"
+ALL THE FUN. #radartom
 DESC
     Tweet.new(name: "Inferis",
               text: text,
