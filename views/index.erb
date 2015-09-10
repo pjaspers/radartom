@@ -16,12 +16,12 @@
       </div>
 
       <div class="message message--other row">
-        <img class="message__avatar fourth" src="https://pbs.twimg.com/profile_images/476829051194462208/3xG9k9j-_400x400.jpeg">
-        <p class="message__text three-fourth">Current status: ignoring all the STAND UP DUDE notifications my Watch is throwing me.</p>
+        <img class="message__avatar fourth" src="<%= @tweet.high_quality_profile_image %>">
+        <p class="message__text three-fourth"><%= @tweet.text %></p>
       </div>
 
       <div class="message message--inferis row">
-        <p class="message__text three-fourth">¯\_(ツ)_/¯</p>
+        <p class="message__text three-fourth"><%= @reply %></p>
         <img class="message__avatar fourth" src="https://pbs.twimg.com/profile_images/476829051194462208/3xG9k9j-_400x400.jpeg">
 
       </div>
