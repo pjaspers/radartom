@@ -2,3 +2,4 @@
 dotter.db
 vendor/ruby
 .sass-cache
+test_dotter.db
