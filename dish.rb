@@ -36,9 +36,11 @@ class Dish
     if Tweet.count > 0
       options.merge!(since_id: Tweet.order(:posted_at).last.tweet_id)
     end
+    log "Start crawl: Looking for tweets with '#{@hashtag}'..."
     client.search(@hashtag, options).attrs.fetch(:statuses, []).each do |tweet|
       process_tweet(tweet)
     end
+    log "Stop crawl"
   end
 
   def process_tweet(tweet_details)
