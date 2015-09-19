@@ -38,3 +38,7 @@ Either run `foreman start` or run `gem install shotgun && shotgun config.ru`.
 Feist your eyes on:
 
 ![DOTTER](https://pile.pjaspers.com/Screen-Shot-2015-09-07-at-23.14.21-0gZF6jpKXV.png)
+
+## Deploying
+
+Ping @fousa to get access to the heroku app that's running this.
