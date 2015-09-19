@@ -1,8 +1,21 @@
 $(function() {
   // Bind le easter egg to le key.
-  $(document).bind('keydown', 'r', function assets() {
-    console.log('IK HOOR U ZEGGEN!');
-    return false;
+  $(document).bind('keydown', 'r', function () {
+    $(".modal").hide();
+    $(".do-no-press-the-r-key").fadeIn();
+  });
+
+  $(document).bind('keydown', 'd', function () {
+    $(".modal").hide();
+    $(".do-no-press-the-d-key").fadeIn();
+  });
+
+  $(document).bind('keydown', "esc", function () {
+    $(".modal").fadeOut();
+  });
+
+  $(document).bind("click", "modal", function () {
+    $(".modal").fadeOut();
   });
 
   // Highly inspired by [this](http://codepen.io/mariusbalaj/pen/MaKRar)
@@ -30,4 +43,3 @@ $(function() {
   };
   window.addEventListener('mousemove', parallax);
 });
-

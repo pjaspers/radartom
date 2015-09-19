@@ -134,6 +134,24 @@ body {
   }
 }
 
+.modal {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background: rgba(0,0,255,0.6);
+  z-index: 10;
+}
+
+.modal__image {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
 
 @media (min-width: 768px) {
     body {
