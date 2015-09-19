@@ -1,7 +1,5 @@
 require "rubygems"
 require "bundler/setup"
-require "dotenv"
-require "dotenv/tasks"
 
 task :test do
   $LOAD_PATH.unshift("test")
