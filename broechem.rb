@@ -1,6 +1,7 @@
 # coding: utf-8
 require "./boot"
 require "sinatra/base"
+require "tilt/erb"
 
 class Broechem < Sinatra::Application
 
