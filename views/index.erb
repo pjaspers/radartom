@@ -1,6 +1,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0">
     <link href="/stylesheets/espace.css" rel="stylesheet" />
 
     <script type="text/javascript" src="/scripts/jquery.js"></script>
@@ -9,21 +10,22 @@
 
   </head>
   <body>
+  <div class="stars"></div>
+  <div class="shine"></div>
+
     <div class="container">
-      <div class="row">
-        <div class="fourth"></div>
-        <div class="three-fourth"></div>
-      </div>
 
-      <div class="message message--other row">
-        <img class="message__avatar fourth" src="<%= @tweet.high_quality_profile_image %>">
-        <p class="message__text three-fourth"><%= @tweet.text %></p>
-      </div>
 
-      <div class="message message--inferis row">
-        <p class="message__text three-fourth"><%= @reply %></p>
-        <img class="message__avatar fourth" src="https://pbs.twimg.com/profile_images/476829051194462208/3xG9k9j-_400x400.jpeg">
+      <div class="conversation">
+        <div class="message message--other">
+          <img class="message__avatar fourth" src="<%= @tweet.high_quality_profile_image %>">
+          <p class="message__text three-fourth"><%= @tweet.text %></p>
+        </div>
 
+        <div class="message message--inferis row">
+          <p class="message__text three-fourth"><%= @reply %></p>
+          <img class="message__avatar fourth" src="https://pbs.twimg.com/profile_images/476829051194462208/3xG9k9j-_400x400.jpeg">
+        </div>
       </div>
     </div>
   </body>
