@@ -1,13 +1,5 @@
-ENV["RACK_ENV"] = "test"
-require "minitest/autorun"
-require "minitest/pride"
-require "rack/test"
-require "pry"
-
-ENV['DATABASE_URL'] = 'sqlite://test_dotter.db'
+require "helper"
 require File.expand_path "../../broechem.rb", __FILE__
-
-include Rack::Test::Methods
 
 def app
   Broechem
@@ -17,19 +9,8 @@ def setup_tweet
   Tweet.create(name: "bobvlanduyt", text: "I broke the tests.", tweet_id: "641623559224324096", profile_image: "https://pbs.twimg.com/profile_images/1175219771/Foto_3.jpg")
 end
 
-class Minitest::Test
-  alias_method :_original_run, :run
-
-  def run(*args, &block)
-    result = nil
-    Sequel::Model.db.transaction(:rollback => :always, :auto_savepoint=>true) do
-      result = _original_run(*args, &block)
-    end
-    result
-  end
-end
-
-class AppTest < Minitest::Test
+class BroechemTest < Minitest::Test
+  include Rack::Test::Methods
 
   def test_renders_front_page
     setup_tweet
