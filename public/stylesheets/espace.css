@@ -7,7 +7,7 @@
 .full, .three-fourth, .half, .third, .fourth {
   min-height: 1px;
   padding: 12px;
-   }
+  float: left; }
 
 .full {
   width: 100%; }
@@ -68,15 +68,13 @@ body {
 .message {
   clear: both;
   margin-top: 20px;
-  position: relative;
-}
+  position: relative; }
 
 .message__avatar {
   border-radius: 50%;
   position: absolute;
   bottom: 0;
-  max-height: 100px; 
-}
+  max-height: 100px; }
 
 .message__text {
   margin: 0 0 0.5em;
@@ -84,8 +82,7 @@ body {
   border-radius: 1em;
   padding: 0.5em 1em;
   background: #e5e5ea;
-  position: relative;
-}
+  position: relative; }
 
 .message--other .message__text {
   margin-left: 25%; }
@@ -103,26 +100,23 @@ body {
   border-bottom-right-radius: 1em 0.5em; }
 
 .message--inferis {
-  margin-top: 50px;
-}
-
-.message--inferis .message__text {
-  margin-right: 25%;
-  background: #1289fe;
-  color: white; }
-.message--inferis .message__avatar {
-  right: -10; 
-  bottom: -50;
-}
-.message--inferis .message__text::after {
-  content: "";
-  position: absolute;
-  right: -0.5em;
-  bottom: 0;
-  width: 0.5em;
-  height: 1em;
-  border-left: 0.5em solid #1289fe;
-  border-bottom-left-radius: 1em 0.5em; }
+  margin-top: 50px; }
+  .message--inferis .message__text {
+    margin-right: 25%;
+    background: #1289fe;
+    color: white; }
+  .message--inferis .message__avatar {
+    right: -10;
+    bottom: -50; }
+  .message--inferis .message__text::after {
+    content: "";
+    position: absolute;
+    right: -0.5em;
+    bottom: 0;
+    width: 0.5em;
+    height: 1em;
+    border-left: 0.5em solid #1289fe;
+    border-bottom-left-radius: 1em 0.5em; }
 
 .modal {
   display: none;
@@ -157,12 +151,10 @@ body {
     max-height: 200px; }
 
   .message--inferis {
-    margin-top: 130px;
-  }
-
-  .message--inferis .message__avatar {
-    bottom: -30;
-    right: -20; }
+    margin-top: 130px; }
+    .message--inferis .message__avatar {
+      bottom: -30;
+      right: -20; }
 
   .message--other .message__avatar {
     bottom: -120;
