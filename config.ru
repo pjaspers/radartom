@@ -11,7 +11,7 @@ broechem_city = Rack::Builder.new do
   use Rack::Static, :urls => ["/img", "/stylesheets", "/scripts"], root: "public"
   Shack::Middleware.configure do |shack|
     shack.sha = sha
-    shack.content = "<a href='https://github.com/pjaspers/radar-tom/commit/{{sha}}'>{{short_sha}}</a>"
+    shack.content = "<a href='https://github.com/pjaspers/radartom/commit/{{sha}}'>{{short_sha}}</a>"
   end
   use Shack::Middleware
 
