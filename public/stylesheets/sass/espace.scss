@@ -1,3 +1,11 @@
+@mixin vendor-prefix($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  -o-#{$name}: #{$argument};
+  #{$name}: #{$argument};
+}
+
 // A very simple grid system.
 .row:before,
 .row:after {
@@ -66,7 +74,7 @@ body {
 .container {
     margin: 0 auto;
     max-width: 800px;
-    perspective: 800px;
+    @include vendor-prefix("perspective", 800px);
 }
 
 .conversation {
@@ -149,7 +157,7 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  @include vendor-prefix("transform", "translate(-50%, -50%)");
   width: 80%;
 }
 
