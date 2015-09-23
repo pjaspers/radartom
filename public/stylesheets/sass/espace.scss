@@ -78,14 +78,13 @@ body {
 }
 
 .conversation {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin-top: 50%;
 }
 .message {
     clear: both;
     margin-top: 20px;
     position: relative;
+    min-height: 100px;
 }
 .message__avatar {
     border-radius: 50%;
@@ -170,6 +169,7 @@ body {
         font-size: 48px;
     }
     .conversation {
+      margin-top: 10%;
     }
     .message {
         margin-top: 50px;
