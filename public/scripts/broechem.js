@@ -18,6 +18,16 @@ $(function() {
     $(".modal").fadeOut();
   });
 
+  // Safari 8 doesn't support `transform` without a prefix.
+  function setTransform(element, value) {
+    element.style["WebkitTransform"] = value;
+    element.style["webkitTransform"] = value; // I'm not even sure if it's `Webkit` or `webkit`
+    element.style["MozTransform"] = value;
+    element.style["MSTransform"] = value;
+    element.style["OTransform"] = value;
+    element.style.transform = value;
+  }
+
   // Highly inspired by [this](http://codepen.io/mariusbalaj/pen/MaKRar)
   function parallax(e) {
     var w = window.innerWidth,
@@ -33,12 +43,12 @@ $(function() {
     document.querySelector(".shine").style.background = 'linear-gradient(' + angle + 'deg, rgba(255,255,255,' + e.pageY / h / 5 + ') 0%,rgba(255,255,255,0) 80%)';
 
     // Let the stars move a bit.
-    document.querySelector(".stars").style.transform = "translateX(" + offsetX*10 + "px) translateY(" + offsetY*10 + "px)";
+    setTransform(document.querySelector(".stars"), "translateX(" + offsetX*10 + "px) translateY(" + offsetY*10 + "px)");
 
     // Make the messages dance
     var messages = document.querySelectorAll(".message");
     Array.prototype.forEach.call(messages, function(el, i){
-      el.style.transform = 'rotateX(' + offsetX*5 + 'deg) rotateY(' + offsetY*5 + 'deg)';
+      setTransform(el, 'rotateX(' + offsetX*5 + 'deg) rotateY(' + offsetY*5 + 'deg)');
     });
   };
   window.addEventListener('mousemove', parallax);
