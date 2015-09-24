@@ -19,4 +19,5 @@ group :development, :test do
   gem "sqlite3", "~> 1.3.10"
   gem "minitest", "~> 5.5.0"
   gem "rack-test", "~> 0.6.2"
+  gem "travis", "~> 1.8.0"
 end
