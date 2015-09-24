@@ -1,0 +1,19 @@
+language: ruby
+rvm:
+- 2.2.2
+install:
+- bundle install --local --jobs=3 --retry=3 --deployment
+deploy:
+  provider: heroku
+  app: radartom
+  api_key:
+    secure: uF+9AOWm+3EUEK6E25yBwGlopxVqDG0EPbo2zuZ7hT2vzAUQRJlnmcHEWCJ77khZeRmk/56Nk7KPAXf3aZPgOdXyXHadezO4Vrn9DKukAhfXsDxauITAAxq6/28QximUuN6xlxaWtHnvv05rFnUEQAy9Et50aGbkki+7gyU2cQcuOvWAkfFSXFzJYnS122CJNunak3VmvzVpxW9jwWh7WqVchKy7H85beRztBY5fGcJ6PVdqYJmn5QiGkAO8+HNhAxLhSV1gvLqqm3tytNMDfOMtxL5Ud1lsSdvCPt6QxlP6M1DsuuJYcpc6I5mFPfIwjfh6MrtGtmMXglDmtzhVz5uy4kPj7p7KAemk0DhUOM4elQJwUZqYKGdaGsvQDtjqO4EeAMzeltl9FaVZPIzAgxnsxklM2w2FudqDG9yxkOp0ltHCQaHiip8TTX47G28X51pIPS0G+VTIshCSNnqDmgZNcCPpIV0mmrCrvAr90UWlZ22vsZZJoVAqPhCfTbRPirg3/XSJef+maxdYq54pzFSn2cG+TfkgesFXyUdegz0EVmBQy5wjz2CVgabIzSFoRpXwxLSE6sGwFLRfHuzCFTfoeo0HiAzD9aCBP4JU5Bo/GjfqSicSrC49C1XKcTSRpls4exEpQ2LDfeOUqiD2v8v0oq56tYky36WdCEF+dXU=
+env:
+  global:
+    secure: WDfLnxn+tmZ4s0GwvaPQgwubcvZX2n9pLq1fb8w8RnmubRAUIzL51egZdCOubq70jweitB/k0ebQVAD+LmlZ3o4knPyjtHt182BLvMarLhGbIT3VdL+oaI9Xzu1IlWOgsuu0Y/Gyy8Z3P88o2JiYzGJzqOHrFVf7ihUl9uojUI0Jdq5KXI319z3tSZ8Km6t5c2NBSDQlEF6NcAefHYwshxVrw+AifQdc5pXnTqZ2piU5JrI+UQJ1r2d10YMURzYFq3D6gZ2+aGpXwyLV26SJFoahs9U3K6mOhVyg+pGvrGfuVXONs5zjadRIkT+5Ox/o0eZjwbq5I2iwZ+PXfGunuYFFfxdzpvca8M0khniPabJ3Mp9UGr4IsOFyf3ym2mFM/Dp3BrvjjXtB8ImQq80aK90MTBlPmC9RT6oRJqVgf498wBWQUo0RnHAWwdMP9mcijYxLVZmFIaGR2MoXcwyOp/7FJsZgDAh49ZddVOvPQb3UXXbnpACOquJG1QFBvaNT/56AwguGSITs4vMzqlXy8SA2chYDRVDsja9Ooc4QMFsa/4gAxHuQK3gca02KKaK1Z7lVoVD6NKDIJxOXshamf3GHISzZR8UOm3B+EpLvMyNYmdjw2mPqW/o7yZwUdfilIvie/4fXhsBIA1SnqMgCxXi73hhDCLArzqMmAbMzdPE=
+before_deploy:
+- echo "Stand back! High tech cybering starting!"
+after_deploy:
+- echo "Setting the sha"
+- |
+  curl -n -H "Authorization: Bearer $HEROKU_API_KEY" -X PATCH https://api.heroku.com/apps/radartom/config-vars -H "Accept: application/vnd.heroku+json; version=3" -H "Content-Type: application/json" -d '{"SHA":"'"$TRAVIS_COMMIT"'"}' > /dev/null
