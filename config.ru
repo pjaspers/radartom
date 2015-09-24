@@ -6,11 +6,12 @@ require "shack"
 # - compiles the sass (in development)
 # - Fires up the Broechem Sinatra app
 broechem_city = Rack::Builder.new do
-  use Rack::Static, :urls => ["/img", "/stylesheets"], root: "public"
   sha = ENV["SHA"] || "el-inferis"
+  # Both apps share the same static folder.
+  use Rack::Static, :urls => ["/img", "/stylesheets", "/scripts"], root: "public"
   Shack::Middleware.configure do |shack|
     shack.sha = sha
-    shack.content = "<a href='https://github.com/pjaspers/radar-tom/commit/{{sha}}'>{{short_sha}}</a>"
+    shack.content = "<a href='https://github.com/pjaspers/radartom/commit/{{sha}}'>{{short_sha}}</a>"
   end
   use Shack::Middleware
 
@@ -26,7 +27,8 @@ end
 # The old app:
 # - shows el @inferis disguised as Dennis Nedry
 old_app = Rack::Builder.new do
-  use Rack::Static, :urls => ["/img", "/stylesheets"], root: "public"
+  # Both apps share the same static folder.
+  use Rack::Static, :urls => ["/img", "/stylesheets", "/scripts"], root: "public"
   run -> (env) {
     [
       200,
